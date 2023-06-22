@@ -1,0 +1,17 @@
+body {
+    background-color: #F7FFF7;
+}
+
+main {
+    display: flex;
+    margin-top: 10vh;
+    justify-content: center;
+    height: 100vh;
+}
+
+.calculator {
+    background-color: #FFE66D;
+    width: 480px;
+    height: 650px;
+    border-radius: 30px;
+}
