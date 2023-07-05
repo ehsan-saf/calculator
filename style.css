@@ -24,14 +24,14 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .screen {
     background-color: #B1E5F2;
     color: black;
     width: 100%;
-    height: 200px;
+    height: 280px;
     padding: 5px;
     border-radius: 10px;
     text-align: right;
@@ -39,6 +39,19 @@ main {
     display: flex;
     justify-content: end;
     align-items: end;
+}
+
+.clear {
+    padding: 16px 130px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: scale 0.2s;
+}
+
+.clear:hover {
+    scale: 1.05;
 }
 
 .numpad {
