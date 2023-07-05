@@ -49,9 +49,7 @@ main {
     width: 90%;
 }
 
-.number,
-.operation,
-.dot {
+.numpad button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,12 +59,7 @@ main {
     color: white;
     font-size: 1.5rem;
     padding: 20px 25px;
-    transition: background-color 0.5s ease-in, color 0.5s;
-}
-
-.numpad button {
-    scale: 1;
-    transition: scale 0.3s ease-out
+    transition: scale 0.2s, background-color 0.2s ease-in, color 0.2s;
 }
 
 .numpad button:hover {
@@ -81,4 +74,13 @@ main {
 .dot:hover {
     background-color: ivory;
     color: #272635;
+}
+
+
+.numpad .operation:hover {
+    background-color: rgb(185, 185, 0);
+}
+
+.numpad .equale:hover {
+    background-color: rgb(168, 233, 70);
 }
