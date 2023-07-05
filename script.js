@@ -27,3 +27,20 @@ function operate(a, b, operation) {
         case "/": result = divide(a, b); break;
     }
 } 
+
+const screen = document.querySelector(".screen");
+const numberButtons = document.querySelectorAll(".number");
+const dotButton = document.querySelector(".dot");
+
+numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
+    screen.textContent += btn.target.textContent;
+}));
+
+dotButton.onclick = () =>  {
+    if(screen.textContent === "") {
+        screen.textContent += "0.";
+    }
+    else if(!screen.textContent.includes(".")) {
+        screen.textContent += ".";
+    }
+};
