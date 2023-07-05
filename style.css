@@ -50,7 +50,8 @@ main {
 }
 
 .number,
-.operation {
+.operation,
+.dot {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +73,12 @@ main {
     scale: 1.1;
 }
 
-.numpad .number:hover {
+.number:hover {
+    background-color: ivory;
+    color: #272635;
+}
+
+.dot:hover {
     background-color: ivory;
     color: #272635;
 }
