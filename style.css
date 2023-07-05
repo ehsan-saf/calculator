@@ -56,8 +56,23 @@ main {
     justify-content: center;
     background-color: #272635;
     border-radius: 50%;
+    border: none;
     color: white;
     font-size: 1.5rem;
     padding: 20px 25px;
-    border: none;
+    transition: background-color 0.5s ease-in, color 0.5s;
+}
+
+.numpad button {
+    scale: 1;
+    transition: scale 0.3s ease-out
+}
+
+.numpad button:hover {
+    scale: 1.1;
+}
+
+.numpad .number:hover {
+    background-color: ivory;
+    color: #272635;
 }
