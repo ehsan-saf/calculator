@@ -29,10 +29,16 @@ main {
 
 .screen {
     background-color: #B1E5F2;
-    color: white;
+    color: black;
     width: 100%;
-    padding: 4rem;
+    height: 200px;
+    padding: 5px;
     border-radius: 10px;
+    text-align: right;
+    font-size: 2rem;
+    display: flex;
+    justify-content: end;
+    align-items: end;
 }
 
 .numpad {
