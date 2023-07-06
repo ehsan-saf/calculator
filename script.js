@@ -32,6 +32,7 @@ const screen = document.querySelector(".screen");
 const numberButtons = document.querySelectorAll(".number");
 const dotButton = document.querySelector(".dot");
 const operationButtons = document.querySelectorAll(".operation");
+const equaleButton = document.querySelector(".equale");
 
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
@@ -53,4 +54,9 @@ operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     screen.textContent = "";
 }));
 
+equaleButton.addEventListener("click", () => {
+    secondNum = Number(screen.textContent);
+    operate(firstNum, secondNum, operator);
+    screen.textContent = result;
+});
 
