@@ -24,13 +24,15 @@ function operate(a, b, operation) {
         case "+": result = add(a, b); break;
         case "-": result = subtract(a, b); break;
         case "x": result = multiply(a, b); break;
-        case "/": result = divide(a, b); break;
+        case "÷": result = divide(a, b); break;
     }
 } 
 
 const screen = document.querySelector(".screen");
 const numberButtons = document.querySelectorAll(".number");
 const dotButton = document.querySelector(".dot");
+const operationButtons = document.querySelectorAll(".operation");
+
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     screen.textContent += btn.target.textContent;
@@ -44,3 +46,11 @@ dotButton.onclick = () =>  {
         screen.textContent += ".";
     }
 };
+
+operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
+    operator = btn.target.textContent;
+    firstNum = Number(screen.textContent);
+    screen.textContent = "";
+}));
+
+
