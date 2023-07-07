@@ -23,7 +23,7 @@ function operate(a, b, operation) {
     switch(operation) {
         case "+": result = add(a, b); break;
         case "-": result = subtract(a, b); break;
-        case "x": result = multiply(a, b); break;
+        case "×": result = multiply(a, b); break;
         case "÷": result = divide(a, b); break;
     }
 } 
