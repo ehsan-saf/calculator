@@ -14,10 +14,10 @@ function divide(a, b) {
     return a / b;
 }
 
-let firstNum = 0;
-let secondNum = 0;
+let mustClear = false;
 let operator = "";
 let result = 0;
+let numbers = [];
 
 function operate(a, b, operation) {
     switch(operation) {
@@ -36,6 +36,10 @@ const equaleButton = document.querySelector(".equale");
 
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
+    if(numbers.length === 1 && mustClear) {
+        screen.textContent = "";
+        mustClear = false;
+    }
     screen.textContent += btn.target.textContent;
 }));
 
@@ -49,14 +53,26 @@ dotButton.onclick = () =>  {
 };
 
 operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
+    if(numbers.length === 0) {
+        numbers.push(Number(screen.textContent));
+        screen.textContent = "";
+    }
+    else 
+    {    
+        operate(numbers[0], Number(screen.textContent), operator);
+        numbers.pop();
+        screen.textContent = result;
+        numbers.push(result);
+        mustClear = true;
+    }
     operator = btn.target.textContent;
-    firstNum = Number(screen.textContent);
-    screen.textContent = "";
 }));
 
 equaleButton.addEventListener("click", () => {
-    secondNum = Number(screen.textContent);
-    operate(firstNum, secondNum, operator);
-    screen.textContent = result;
+        if(numbers.length === 1) {
+            operate(numbers[0], Number(screen.textContent), operator);
+            numbers.pop();
+            screen.textContent = result;
+        }
 });
 
