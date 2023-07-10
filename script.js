@@ -45,6 +45,7 @@ const backspaceButton = document.querySelector(".backspace");
 
 clearButton.addEventListener("click", resetAll);
 backspaceButton.addEventListener("click", deleteNumber);
+window.addEventListener("keydown", keydownEvent);
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     if(numbers.length === 1 && mustClear) {
@@ -54,14 +55,7 @@ numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     screen.textContent += btn.target.textContent;
 }));
 
-dotButton.onclick = () =>  {
-    if(screen.textContent === "") {
-        screen.textContent += "0.";
-    }
-    else if(!screen.textContent.includes(".")) {
-        screen.textContent += ".";
-    }
-};
+dotButton.onclick = writeDecimalPoint;
 
 operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     if(numbers.length === 0) {
@@ -99,5 +93,27 @@ function deleteNumber() {
     const screenContent = screen.textContent;
     if(screenContent.length !== 0) {
         screen.textContent = screenContent.slice(0, -1);
+    }
+}
+
+function keydownEvent(e) {
+    console.log(e.key);
+    if(!isNaN(e.key)) {
+        screen.textContent += e.key;
+    }
+    else if(e.key === "."){
+        writeDecimalPoint();
+    }
+    else if(e.key === "Backspace") {
+        deleteNumber();
+    }
+}
+
+function writeDecimalPoint() {
+    if(screen.textContent === "") {
+        screen.textContent += "0.";
+    }
+    else if(!screen.textContent.includes(".")) {
+        screen.textContent += ".";
     }
 }
