@@ -41,8 +41,10 @@ const dotButton = document.querySelector(".dot");
 const operationButtons = document.querySelectorAll(".operation");
 const equaleButton = document.querySelector(".equale");
 const clearButton = document.querySelector(".clear");
+const backspaceButton = document.querySelector(".backspace");
 
 clearButton.addEventListener("click", resetAll);
+backspaceButton.addEventListener("click", deleteNumber);
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     if(numbers.length === 1 && mustClear) {
@@ -91,4 +93,11 @@ function resetAll() {
     screen.textContent = "";
     mustClear = false;
     result = 0;
+}
+
+function deleteNumber() {
+    const screenContent = screen.textContent;
+    if(screenContent.length !== 0) {
+        screen.textContent = screenContent.slice(0, -1);
+    }
 }
