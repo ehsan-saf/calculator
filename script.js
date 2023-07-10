@@ -33,7 +33,13 @@ const numberButtons = document.querySelectorAll(".number");
 const dotButton = document.querySelector(".dot");
 const operationButtons = document.querySelectorAll(".operation");
 const equaleButton = document.querySelector(".equale");
+const clearButton = document.querySelector(".clear");
 
+clearButton.addEventListener("click", () => {
+    numbers.pop();
+    operator = "";
+    screen.textContent = "";
+});
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     if(numbers.length === 1 && mustClear) {
