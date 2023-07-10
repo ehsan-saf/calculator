@@ -41,8 +41,14 @@ main {
     align-items: end;
 }
 
-.clear {
-    padding: 16px 130px;
+.clearButtons {
+    display: flex;
+    gap: 15px;
+}
+
+.clear,
+.backspace {
+    padding: 14px 40px;
     border-radius: 10px;
     border: none;
     font-size: 1.2rem;
@@ -50,8 +56,13 @@ main {
     transition: scale 0.2s;
 }
 
-.clear:hover {
+.clearButtons button:hover {
     scale: 1.05;
+}
+
+.backspace {
+    background-image: url(./images/backspace.png);
+    background-position: center;
 }
 
 .numpad {

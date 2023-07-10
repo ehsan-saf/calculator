@@ -11,7 +11,14 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b;
+    if(b === 0) {
+        alert("Can't divide by 0 !");
+        resetAll();
+    }
+    else {
+        return a / b;
+    }
+    
 }
 
 let mustClear = false;
@@ -35,11 +42,7 @@ const operationButtons = document.querySelectorAll(".operation");
 const equaleButton = document.querySelector(".equale");
 const clearButton = document.querySelector(".clear");
 
-clearButton.addEventListener("click", () => {
-    numbers.pop();
-    operator = "";
-    screen.textContent = "";
-});
+clearButton.addEventListener("click", resetAll);
 
 numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     if(numbers.length === 1 && mustClear) {
@@ -82,3 +85,10 @@ equaleButton.addEventListener("click", () => {
         }
 });
 
+function resetAll() {
+    numbers.pop();
+    operator = "";
+    screen.textContent = "";
+    mustClear = false;
+    result = 0;
+}
