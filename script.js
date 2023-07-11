@@ -39,7 +39,7 @@ const screen = document.querySelector(".screen");
 const numberButtons = document.querySelectorAll(".number");
 const dotButton = document.querySelector(".dot");
 const operationButtons = document.querySelectorAll(".operation");
-const equaleButton = document.querySelector(".equale");
+const equalButton = document.querySelector(".equal");
 const clearButton = document.querySelector(".clear");
 const backspaceButton = document.querySelector(".backspace");
 
@@ -62,13 +62,7 @@ operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     operator = btn.target.textContent;
 }));
 
-equaleButton.addEventListener("click", () => {
-        if(numbers.length === 1) {
-            operate(numbers[0], Number(screen.textContent), operator);
-            numbers.pop();
-            screen.textContent = result;
-        }
-});
+equalButton.addEventListener("click", equalOperator);
 
 function operation() {
     if(numbers.length === 0) {
@@ -82,6 +76,14 @@ function operation() {
         screen.textContent = result;
         numbers.push(result);
         mustClear = true;
+    }
+}
+
+function equalOperator() {
+    if(numbers.length === 1) {
+        operate(numbers[0], Number(screen.textContent), operator);
+        numbers.pop();
+        screen.textContent = result;
     }
 }
 
@@ -116,6 +118,9 @@ function keydownEvent(e) {
         operation();
         operatorKeyboard(e.key);
     }
+    else if(e.key === "Enter"){
+        equalOperator();
+    }
 }
 
 function writeDecimalPoint() {
@@ -128,10 +133,11 @@ function writeDecimalPoint() {
 }
 
 function operatorKeyboard(operatorBtn) {
+    console.log(operatorBtn);
     switch(operatorBtn){
         case "+": operator = "+"; break;
         case "-": operator = "-"; break;
-        case "*": operator = "x"; break;
+        case "*": operator = "×"; break;
         case "/": operator = "÷"; break;
     }
 }
