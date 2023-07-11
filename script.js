@@ -58,6 +58,19 @@ numberButtons.forEach(bt => bt.addEventListener("click", (btn) => {
 dotButton.onclick = writeDecimalPoint;
 
 operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
+    operation();
+    operator = btn.target.textContent;
+}));
+
+equaleButton.addEventListener("click", () => {
+        if(numbers.length === 1) {
+            operate(numbers[0], Number(screen.textContent), operator);
+            numbers.pop();
+            screen.textContent = result;
+        }
+});
+
+function operation() {
     if(numbers.length === 0) {
         numbers.push(Number(screen.textContent));
         screen.textContent = "";
@@ -70,16 +83,7 @@ operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
         numbers.push(result);
         mustClear = true;
     }
-    operator = btn.target.textContent;
-}));
-
-equaleButton.addEventListener("click", () => {
-        if(numbers.length === 1) {
-            operate(numbers[0], Number(screen.textContent), operator);
-            numbers.pop();
-            screen.textContent = result;
-        }
-});
+}
 
 function resetAll() {
     numbers.pop();
@@ -107,6 +111,11 @@ function keydownEvent(e) {
     else if(e.key === "Backspace") {
         deleteNumber();
     }
+    else if("+-*/".includes(e.key)) {
+        console.log("OPERATION BUTTONS !");
+        operation();
+        operatorKeyboard(e.key);
+    }
 }
 
 function writeDecimalPoint() {
@@ -115,5 +124,14 @@ function writeDecimalPoint() {
     }
     else if(!screen.textContent.includes(".")) {
         screen.textContent += ".";
+    }
+}
+
+function operatorKeyboard(operatorBtn) {
+    switch(operatorBtn){
+        case "+": operator = "+"; break;
+        case "-": operator = "-"; break;
+        case "*": operator = "x"; break;
+        case "/": operator = "÷"; break;
     }
 }
