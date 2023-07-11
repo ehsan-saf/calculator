@@ -30,8 +30,8 @@ function operate(a, b, operation) {
     switch(operation) {
         case "+": result = add(a, b); break;
         case "-": result = subtract(a, b); break;
-        case "×": result = multiply(a, b); break;
-        case "÷": result = divide(a, b); break;
+        case "*": result = multiply(a, b); break;
+        case "/": result = divide(a, b); break;
     }
 } 
 
@@ -59,7 +59,7 @@ dotButton.onclick = writeDecimalPoint;
 
 operationButtons.forEach(bt => bt.addEventListener("click", (btn) => {
     operation();
-    operator = btn.target.textContent;
+    operator = btn.target.id;
 }));
 
 equalButton.addEventListener("click", equalOperator);
@@ -116,7 +116,7 @@ function keydownEvent(e) {
     else if("+-*/".includes(e.key)) {
         console.log("OPERATION BUTTONS !");
         operation();
-        operatorKeyboard(e.key);
+        operator = e.key;
     }
     else if(e.key === "Enter"){
         equalOperator();
@@ -129,15 +129,5 @@ function writeDecimalPoint() {
     }
     else if(!screen.textContent.includes(".")) {
         screen.textContent += ".";
-    }
-}
-
-function operatorKeyboard(operatorBtn) {
-    console.log(operatorBtn);
-    switch(operatorBtn){
-        case "+": operator = "+"; break;
-        case "-": operator = "-"; break;
-        case "*": operator = "×"; break;
-        case "/": operator = "÷"; break;
     }
 }
