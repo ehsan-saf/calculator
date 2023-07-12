@@ -1,1 +1,2 @@
 # calculator
+This project was created with the help of and according to the recommended steps and functionalities of the odin project Calculator project in order to practice/showcase html css JavaScript skills 
