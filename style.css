@@ -12,13 +12,12 @@ main {
     display: flex;
     margin-top: 10vh;
     justify-content: center;
-    height: 100vh;
+    height: 60vh;
 }
 
 .calculator {
     background-color: #A6A6A8;
     width: 380px;
-    height: 550px;
     border-radius: 30px;
     padding: 15px;
     display: flex;
@@ -31,14 +30,13 @@ main {
     background-color: #B1E5F2;
     color: black;
     width: 100%;
-    height: 280px;
-    padding: 5px;
     border-radius: 10px;
     text-align: right;
     font-size: 2rem;
     display: flex;
     justify-content: end;
     align-items: end;
+    flex-grow: 1;
 }
 
 .clearButtons {
